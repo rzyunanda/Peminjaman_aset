@@ -14,7 +14,7 @@
 <!-- Mirrored from colorlib.com//polygon/managementty/default/dt-ext-basic-buttons.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Nov 2018 03:12:46 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
-    <title>Tugas | <?php startblock('title') ?><?php endblock() ?></title>
+    <title>TB | <?php startblock('title') ?><?php endblock() ?></title>
     <style type="text/css">
         .sembunyi{
           display: none;
@@ -184,14 +184,13 @@
                       <?php }?>
                       <div class="pcoded-navigatio-lavel">Aset</div>
                             <li class="">
-                                <a href="/peminjaman-aset/view/management/kendaraan">
-                                    <
-                                        span class="pcoded-micon"><i class="icofont icofont-users"></i></span>
+                                <a href="/peminjaman-aset/view/kendaraan">
+                                    <span class="pcoded-micon"><i class="icofont icofont-users"></i></span>
                                     <span class="pcoded-mtext">Kendaraan</span>
                                 </a>
                             </li>
                             <li class="">
-                                <a href="/peminjaman-aset/view/management/gedung">
+                                <a href="/peminjaman-aset/view/gedung">
                                     <span class="pcoded-micon"><i class="icofont icofont-users"></i></span>
                                     <span class="pcoded-mtext">Gedung dan Bangunan</span>
                                 </a>
