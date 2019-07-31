@@ -196,7 +196,7 @@
                                 </a>
                             </li>
                             <li class="">
-                                <a href="/peminjaman-aset/view/management/peralatan">
+                                <a href="/peminjaman-aset/view/peralatan">
                                     <span class="pcoded-micon"><i class="icofont icofont-users"></i></span>
                                     <span class="pcoded-mtext">Peralatan</span>
                                 </a>
