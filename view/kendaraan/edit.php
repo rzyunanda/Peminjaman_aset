@@ -1,6 +1,5 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'].'/peminjaman-aset/blank.php';
-
 include $_SERVER['DOCUMENT_ROOT'].'/peminjaman-aset/model/kendaraan.php';
 $kendaraan = new kendaraan($conn);
 ?>
@@ -29,7 +28,9 @@ Edit Kendaraan
         <form id="second" action="/peminjaman-aset/controller/kendaraanController.php?aksi=update" method="post" novalidate>
             <?php
               $aset_id = $_GET['aset_id'];
-              foreach ($kendaraan->data($aset_id) as $data) {
+              $sql = "SELECT aset.*,kendaraan.* FROM aset join kendaraan on aset.id=kendaraan.aset_id WHERE aset.id='$aset_id'";
+              $mysqli_query= mysqli_query($conn,$sql);
+              while($data = mysqli_fetch_array($mysqli_query)){
             ?>
             <input type="hidden" value="<?php echo $aset_id;?>"  id="aset_id" name="aset_id">
             <?php include $_SERVER['DOCUMENT_ROOT'].'/peminjaman-aset/view/kendaraan/_field.php'; ?>

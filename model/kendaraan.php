@@ -22,7 +22,7 @@
                   array_push($_SESSION['pesan'],['eror','Gagal Menambahkan Kendaraan']);
                   array_push($_SESSION['pesan'],['eror',mysqli_error($this->koneksi)]);
           }else{
-            $sql1="insert INTO kendaraan(no_plat,bahan_bakar,aset_id) values ('$no_plat','$bahan_bakar',LAST_INSERT_ID())";  
+            $sql1="insert INTO kendaraan(id,no_plat,bahan_bakar,aset_id) values ('$no_plat','$bahan_bakar',LAST_INSERT_ID())";  
             if(mysqli_query($this->koneksi,$sql1)){
                array_push($_SESSION['pesan'],['berhasil','Berhasil Menambahkan Kendaraan']);
             }
@@ -61,6 +61,10 @@
           array_push($_SESSION['pesan'],['eror',mysqli_error($this->koneksi)]);
     
         }else{
+          $sql1 = "update kendaraan set no_plat='$no_plat',bahan_bakar='$bahan_bakar' where aset_id='$aset_id'";
+          if(!mysqli_query($this->koneksi,$sql1)){
+            header("location:/peminjaman-aset/view/kendaraan");
+          }
           array_push($_SESSION['pesan'],['berhasil','Berhasil Merubah Kendaraan']);
         }
         header("location:/peminjaman-aset/view/kendaraan");

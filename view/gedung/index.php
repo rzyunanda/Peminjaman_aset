@@ -1,7 +1,7 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'].'/peminjaman-aset/blank.php';
 include $_SERVER['DOCUMENT_ROOT'].'/peminjaman-aset/model/gedung.php';
-$kendaraan = new kendaraan($conn);
+$gedung = new gedung($conn);
 ?>
 
 <?php
@@ -40,27 +40,27 @@ Gedung Management
               </thead>
               <tbody>
               <?php $no=1;
-                  foreach ($kendaraan->data() as $data) {
+                  foreach ($gedung->data() as $data) {
                    
                 ?>
                   <tr>
                       <td><?php echo $no;?></td>  
                       <td><?php echo $data['nama'];?></td>
-                      <td><?php echo $data['no_plat'];?></td>
-                      <td><?php echo $data['bahan_bakar'];?></td>
+                      <td><?php echo $data['alamat'];?></td>
+                      <td><?php echo $data['kapasitas'];?></td>
                       <td style="width:100px">
                         <?php if($hak_akses=="admin" || $hak_akses=="operator"){ ?>
-                        <a href="/peminjaman-aset/view/kendaraan/edit.php?aset_id=<?php echo $data['aset_id']; ?>" class="btn btn-primary btn-mini waves-effect waves-light">Edit</a>
+                        <a href="/peminjaman-aset/view/gedung/edit.php?aset_id=<?php echo $data['aset_id']; ?>" class="btn btn-primary btn-mini waves-effect waves-light">Edit</a>
                         <?php } ?>
                         <?php if($hak_akses=="admin" || $hak_akses=="operator"){ ?>
-                        <a href="#" class="btn btn-danger btn-mini waves-effect waves-light" onclick="hapus('<?php echo $data['aset_id']; ?>')">Delete</a>
+                        <a href="/peminjaman-aset/controller/kendaraanController.php?aksi=delete" class="btn btn-danger btn-mini waves-effect waves-light" onclick="hapus('<?php echo $data['aset_id']; ?>')">Delete</a>
                         <?php } ?>
                       </td>
                   </tr>
                 <?php  $no++; } ?>
               </tbody>
           </table>
-          <form class="" id="formdelete" style="display:none" action="/peminjaman-aset/controller/kendaraanController.php?aksi=delete" method="post">
+          <form class="" id="formdelete" style="display:none" action="/peminjaman-aset/controller/gedungController.php?aksi=delete" method="post">
             <input type="text" name="aset_id" value="" id="delete_id">
           </form>
                 </div>
